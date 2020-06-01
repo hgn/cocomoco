@@ -37,6 +37,7 @@ class _Model:
 
     All models inheriet from this model. It values relfect the organic one.
     """
+    name: str = 'undefined'
     effort: float = 2.4
     effort_exponent: float = 1.05
     schedule: float = 2.5
@@ -52,7 +53,7 @@ class Organic(_Model):
     minimal need for innovative algorithms, and requirements can be relaxed to
     avoid extensive rework.
     """
-    pass
+    name: str = 'Organic'
 
 @dataclass
 class Semidetached(_Model):
@@ -61,6 +62,7 @@ class Semidetached(_Model):
     This is an intermediate step between organic and embedded. This is
     generally characterized by reduced flexibility in the requirements.
     """
+    name: str = 'Semidetached'
     effort: float = 3.0
     effort_exponent: float = 1.12
     schedule_exponent: float = 0.35
@@ -74,6 +76,7 @@ class Embedded(_Model):
     software will be embedded in a complex environment that the software must
     deal with as-is.
     """
+    name: str = 'Embedded'
     effort: float = 3.6
     effort_exponent: float = 1.2
     schedule_exponent: float = 0.32
@@ -81,18 +84,23 @@ class Embedded(_Model):
 
 @dataclass
 class IntermediateOrganic(_Model):
+    name: str = 'Intermediate Organic'
     effort: float = 2.3
     effort_exponent: float = 1.05
     schedule_exponent: float = 0.38
 
 @dataclass
 class IntermediateSemidetached(_Model):
+    name: str = 'Intermediate Semidetached'
+    effort: float = 2.3
     effort: float = 3.0
     effort_exponent: float = 1.12
     schedule_exponent: float = 0.35
 
 @dataclass
 class IntermediateEmbedded(_Model):
+    name: str = 'Intermediate Embedded'
+    effort: float = 2.3
     effort: float = 2.8
     effort_exponent: float = 1.2
     schedule_exponent: float = 0.32
@@ -101,26 +109,28 @@ class IntermediateEmbedded(_Model):
 class CocomocoMetric:
 
     def __init__(self, salary=100000.0):
+        self.set_salary(salary)
         self.effort = None
         # time to develop
         self.dtime = None
         self.staff = None
-        self.salary(salary)
+        self.model_name = None
 
     @property
     def cost(self):
         if not self.effort:
             return 0.0
-        return (self.effort / 12.0) * self._salary
+        return (self.effort / 12.0) * self.salary
 
-    def salary(self, new_salary):
+    def set_salary(self, new_salary):
         if new_salary <= 0:
             raise CocomocoRangeError("salary must be larger than 0")
-        self._salary = new_salary
+        self.salary = new_salary
 
     def __str__(self):
         msg  = f'effort:{self.effort:.1f} person-months ({self.effort/12.0:.1f} person-years),'
         msg += f' dtime:{self.dtime:.1f} month, staff:{self.staff:.1f} costs:{self.cost:.2f}'
+        msg += f' model:{self.model_name}'
         return msg
 
 
@@ -128,6 +138,7 @@ def calculate(sloc: int, model=Organic()):
     if sloc <= 0:
         raise CocomocoRangeError("sloc must be larger than 0")
     cm = CocomocoMetric()
+    cm.model_name = model.name
     cm.effort = model.effort * math.pow(sloc / 1000.0, model.effort_exponent)
     cm.dtime = model.schedule * math.pow(cm.effort, model.schedule_exponent)
     cm.staff = cm.effort / cm.dtime
