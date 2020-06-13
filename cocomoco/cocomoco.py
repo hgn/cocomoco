@@ -13,6 +13,7 @@ from typing import Optional
 
 class CocomocoError(Exception): pass
 class CocomocoRangeError(Exception): CocomocoError
+class CocomocoModelUnknownError(Exception): CocomocoError
 
 _CorrectiveFactors = collections.namedtuple('CorrectiveFactors', 'very_low low nominal high very_high extra_high')
 _CorrectiveFactorsRely = _CorrectiveFactors(0.75, 0.88, 1.0, 1.15, 1.40, None)
@@ -132,6 +133,17 @@ class CocomocoMetric:
         msg += f' dtime:{self.dtime:.1f} month, staff:{self.staff:.1f} costs:{self.cost:.2f}'
         msg += f' model:{self.model_name}'
         return msg
+
+
+def model_by_name(modelname: str):
+    if modelname.tolower() == 'organic':
+        return Organic()
+    elif modelname.tolower() == 'semidetached':
+        return Semidetached()
+    elif modelname.tolower() == 'embedded':
+        return Embedded()
+    else:
+        raise CocomocoModelUnknownError(f'unknown model: {modelname}')
 
 
 def calculate(sloc: int, model=Organic()):
