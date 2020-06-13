@@ -71,10 +71,12 @@ def demo_mode_chart_basic_modes():
     ax.set_ylabel('Effort [Developer Years]')
     fig.suptitle('Cocomo Metric - Standard Models')
     fig.tight_layout()
-    filename = "stack-plot.png"
+    filename = "cocomo-standard-models.png"
+    print(f'saving {filename}')
     matplotlib.pyplot.savefig(filename, transparent=False)
 
 def demo_mode():
+    print('cocomoco - demo time!')
     demo_mode_check()
     demo_mode_chart_basic_modes()
     return EXIT_SUCCESS

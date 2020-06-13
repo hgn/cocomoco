@@ -1,5 +1,8 @@
 # Cocomoco
 
+## Show Case
+
+![image](doc/cocomo-standard-models.png)
 
 
 ## Installation
