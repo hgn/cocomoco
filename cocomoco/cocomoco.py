@@ -136,11 +136,11 @@ class CocomocoMetric:
 
 
 def model_by_name(modelname: str):
-    if modelname.tolower() == 'organic':
+    if modelname.lower() == 'organic':
         return Organic()
-    elif modelname.tolower() == 'semidetached':
+    elif modelname.lower() == 'semidetached':
         return Semidetached()
-    elif modelname.tolower() == 'embedded':
+    elif modelname.lower() == 'embedded':
         return Embedded()
     else:
         raise CocomocoModelUnknownError(f'unknown model: {modelname}')
