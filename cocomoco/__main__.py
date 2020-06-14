@@ -77,7 +77,7 @@ def demo_mode_chart_basic_modes():
 
 
 def demo_mode_productivity():
-    models = reversed(['Embedded', 'Semidetached', 'Organic'])
+    models = ['Embedded', 'Semidetached', 'Organic']
     fig, ax = demo_mode_basic_line_chart()
     for modelname in models:
         productivity_list = list()
@@ -89,7 +89,7 @@ def demo_mode_productivity():
         ax.plot(DEMO_CLOC_RANGE, productivity_list, label=modelname, linewidth=4.)
 
     ax.grid(alpha=.2);
-    ax.legend(loc='upper right')
+    ax.legend(reversed(matplotlib.pyplot.legend().legendHandles), reversed(models), loc='upper right')
     ax.set_xlabel('Source Lines of Code [kilo]')
     ax.get_xaxis().set_major_formatter(matplotlib.ticker.FuncFormatter(lambda x, p: int(x//1000)))
     ax.set_ylabel('Productivity [Lines of Code per Staff Member and Month]')
