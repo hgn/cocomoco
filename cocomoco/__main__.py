@@ -64,7 +64,7 @@ def demo_mode_chart_basic_modes():
         effort_list_year = [i // 12 for i in effort_list]
         ax.plot(DEMO_CLOC_RANGE, effort_list_year, label=modelname, linewidth=4.)
 
-    ax.grid(alpha=.1);
+    ax.grid(alpha=.2);
     ax.legend(loc='upper left')
     ax.set_xlabel('Source Lines of Code [kilo]')
     ax.get_xaxis().set_major_formatter(matplotlib.ticker.FuncFormatter(lambda x, p: int(x//1000)))
@@ -97,6 +97,7 @@ def main(args):
     print(f'Source Lines of Code: {args.sloc} (KLOC: {args.sloc // 1000})')
     print(f'Effort: {cm.effort:.1f} person-months ({cm.effort / 12.0:.1f} person-years)')
     print(f'Time to Develop: {cm.dtime:.1f} months, Staff:{cm.staff:.1f}')
+    print(f'Productivity: {cm.sloc_per_staff_month:.0f} lines of code per staff member and month')
     print(f'Cost: {cm.cost:.2f} with with salary of {cm.salary:.2f}')
     print(f'Used model: {cm.model_name}')
     return 0

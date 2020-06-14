@@ -31,10 +31,19 @@ Average staff size can be calculated in the following way:
 
 *Remember:* Effort == Staff Months & Dtime == Months -> divide both cancel the months and staff remains!
 
+With cocomoco, to calculate the average staff size for 100000 lines of code using the
+*organic model*: `print(cocomoco.calculate(100000).staff)` -> 14 number of average staff size.
+
 #### Productivity
 
-<img src="https://render.githubusercontent.com/render/math?math=Productivity = \dfrac{Lines of Code}{Effort}">
->Productivity = Lines of Code / Effort
+How many lines of code per staff month can be calculated via:
+
+<img src="https://render.githubusercontent.com/render/math?math=Productivity = \dfrac{Lines Of Code}{Effort}">
+
+With cocomoco, to calculate the staff productivity for 100000 lines of code
+using the *organic model*: `print(cocomoco.calculate(100000).sloc_per_staff_month)` -> 331 lines of code
+per staff member and month.
+
 
 ## Models
 

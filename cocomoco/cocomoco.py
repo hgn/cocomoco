@@ -111,11 +111,13 @@ class CocomocoMetric:
 
     def __init__(self, salary=100000.0):
         self.set_salary(salary)
+        self.sloc = None
         self.effort = None
         # time to develop
         self.dtime = None
         self.staff = None
         self.model_name = None
+        self.sloc_per_staff_month = None
 
     @property
     def cost(self):
@@ -131,6 +133,7 @@ class CocomocoMetric:
     def __str__(self):
         msg  = f'effort:{self.effort:.1f} person-months ({self.effort/12.0:.1f} person-years),'
         msg += f' dtime:{self.dtime:.1f} month, staff:{self.staff:.1f} costs:{self.cost:.2f}'
+        msg += f' productivity:{self.sloc_per_staff_month:.0f} sloc_per_staff_month'
         msg += f' model:{self.model_name}'
         return msg
 
@@ -150,8 +153,10 @@ def calculate(sloc: int, model=Organic()):
     if sloc <= 0:
         raise CocomocoRangeError("sloc must be larger than 0")
     cm = CocomocoMetric()
+    cm.sloc = sloc
     cm.model_name = model.name
     cm.effort = model.effort * math.pow(sloc / 1000.0, model.effort_exponent)
     cm.dtime = model.schedule * math.pow(cm.effort, model.schedule_exponent)
     cm.staff = cm.effort / cm.dtime
+    cm.sloc_per_staff_month = sloc / cm.effort
     return cm
