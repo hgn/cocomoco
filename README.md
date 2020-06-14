@@ -10,6 +10,26 @@
 With cocomoco, to calculate the effort for 100000 lines of code using the
 *organic model*: `print(cocomoco.calculate(100000).effort)` -> 302.1 (person-months).
 
+### Project Development Time, Staff Size
+
+#### Development Time
+
+<img src="https://render.githubusercontent.com/render/math?math=DTime = c ( E )^{d}">
+
+- DTime is time for development
+- c and d are constants to be determined
+- E is the effort
+
+With cocomoco, to calculate the effort for 100000 lines of code using the
+	*organic model*: `print(cocomoco.calculate(100000).dtime)` -> 21.9 (months).
+
+#### Staff Size
+
+Average staff size can be calculated in the following way:
+
+<img src="https://render.githubusercontent.com/render/math?math=Staff Size = fraq{Effort}{Development Time}">
+Staff Size = Effort / Development Time
+
 ## Models
 
 ### Standard Models
@@ -36,12 +56,18 @@ Models define the coefficients a and b for typical projects.
 Organic:
 - a: 2.4
 - b: 1.05
+- c: 2.5
+- d: 0.38
 Semidetached:
 - a: 3.0
 - b: 1.12
+- c: 2.5
+- d: 0.35
 Embedded:
 - a: 3.6
 - b: 1.2
+- c: 2.5
+- d: 0.32
 
 ### Intermediate Models
 
