@@ -6,7 +6,7 @@ with open(path.join(this_directory, 'README.md')) as f:
     long_description = f.read()
 
 setup(name='cocomoco',
-      version='0.0.2',
+      version='0.1.0',
       description='Cocomo Metric Calculator',
       long_description=long_description,
       long_description_content_type='text/markdown',
