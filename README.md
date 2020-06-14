@@ -1,12 +1,16 @@
 # Cocomoco
 
-## Models
 
 <img src="https://render.githubusercontent.com/render/math?math=E = a ( KLOC )^{b}">
 
 - E is the Effort in staff months
 - a and b are coefficients to be determined
 - KLOC is thousands of lines of code (*NOTE:* cocomoco uses LOC, do not enter kloc values)
+
+With cocomoco, to calculate the effort for 100000 lines of code using the
+organic model: `print(cocomoco.calculate(100000).effort)`.
+
+## Models
 
 ### Standard Models
 
