@@ -73,11 +73,13 @@ Organic:
 - b: 1.05
 - c: 2.5
 - d: 0.38
+
 Semidetached:
 - a: 3.0
 - b: 1.12
 - c: 2.5
 - d: 0.35
+
 Embedded:
 - a: 3.6
 - b: 1.2
@@ -113,9 +115,15 @@ low, low, nominal, high, very high, extra high.
 
 ## Show Case
 
-Following chart is created via `python3 -m cocomoco --demo-mode` (as well as other illustrations):
+Following charts are created via `python3 -m cocomoco --demo-mode`:
+
+### Effort 100k -> 500k LOC
 
 ![image](doc/cocomo-standard-models.png)
+
+### Producticity 100k -> 500k LOC
+
+![image](doc/cocomo-productivity-standard-models.png)
 
 
 ## Installation

@@ -69,9 +69,33 @@ def demo_mode_chart_basic_modes():
     ax.set_xlabel('Source Lines of Code [kilo]')
     ax.get_xaxis().set_major_formatter(matplotlib.ticker.FuncFormatter(lambda x, p: int(x//1000)))
     ax.set_ylabel('Effort [Developer Years]')
-    fig.suptitle('Cocomo Metric - Standard Models')
+    fig.suptitle('Cocomo Metric - Effort for Standard Models')
     fig.tight_layout()
-    filename = "cocomo-standard-models.png"
+    filename = "cocomo-effort-standard-models.png"
+    print(f'saving {filename}')
+    matplotlib.pyplot.savefig(filename, transparent=False)
+
+
+def demo_mode_productivity():
+    models = reversed(['Embedded', 'Semidetached', 'Organic'])
+    fig, ax = demo_mode_basic_line_chart()
+    for modelname in models:
+        productivity_list = list()
+        for cloc in DEMO_CLOC_RANGE:
+            model = cocomoco.model_by_name(modelname)
+            cm = cocomoco.calculate(cloc, model=model)
+            productivity_list.append(cm.sloc_per_staff_month)
+
+        ax.plot(DEMO_CLOC_RANGE, productivity_list, label=modelname, linewidth=4.)
+
+    ax.grid(alpha=.2);
+    ax.legend(loc='upper right')
+    ax.set_xlabel('Source Lines of Code [kilo]')
+    ax.get_xaxis().set_major_formatter(matplotlib.ticker.FuncFormatter(lambda x, p: int(x//1000)))
+    ax.set_ylabel('Productivity [Lines of Code per Staff Member and Month]')
+    fig.suptitle('Cocomo Metric - Productivity for Standard Models')
+    fig.tight_layout()
+    filename = "cocomo-productivity-standard-models.png"
     print(f'saving {filename}')
     matplotlib.pyplot.savefig(filename, transparent=False)
 
@@ -79,6 +103,7 @@ def demo_mode():
     print('cocomoco - demo time!')
     demo_mode_check()
     demo_mode_chart_basic_modes()
+    demo_mode_productivity()
     return EXIT_SUCCESS
 
 def main(args):
