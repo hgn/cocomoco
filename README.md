@@ -6,18 +6,18 @@
 
 - Organic
   - 2-50 KLOC
-	- stable dev
-	- little innovation
+  - stable dev
+  - little innovation
 - Semi-detached
   - 50-300 KLOC
-	- average abilities
-	- medium time-constraints
+  - average abilities
+  - medium time-constraints
 - Embedded
-  - >300 KLOC
-	- large project team
-	- complex
-	- innovative
-	- severe constraints
+  - larger 300 KLOC
+  - large project team
+  - complex
+  - innovative
+  - severe constraints
 
 ### Intermediate Models
 
