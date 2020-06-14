@@ -4,13 +4,17 @@
 
 <img src="https://render.githubusercontent.com/render/math?math=E = a ( KLOC )^{b}">
 
+- E is the Effort in staff months
+- a and b are coefficients to be determined
+- KLOC is thousands of lines of code (*NOTE:* cocomoco uses LOC, do not enter kloc values)
+
 ### Standard Models
 
 - Organic
   - 2-50 KLOC
   - stable dev
   - little innovation
-- Semi-detached
+- Semidetached
   - 50-300 KLOC
   - average abilities
   - medium time-constraints
@@ -20,6 +24,18 @@
   - complex
   - innovative
   - severe constraints
+
+#### Standard Constants
+
+Organic:
+- a: 2.4
+- b: 1.05
+Semidetached:
+- a: 3.0
+- b: 1.12
+Embedded:
+- a: 3.6
+- b: 1.2
 
 ### Intermediate Models
 
