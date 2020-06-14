@@ -10,7 +10,7 @@
 With cocomoco, to calculate the effort for 100000 lines of code using the
 *organic model*: `print(cocomoco.calculate(100000).effort)` -> 302.1 (person-months).
 
-### Project Development Time, Staff Size
+### Project Development Time, Staff Size & Productivity
 
 #### Development Time
 
@@ -28,7 +28,13 @@ With cocomoco, to calculate the development time for 100000 lines of code using 
 Average staff size can be calculated in the following way:
 
 <img src="https://render.githubusercontent.com/render/math?math=Staff Size = \dfrac{Effort}{Development Time}">
-Staff Size = Effort / Development Time
+
+*Remember:* Effort == Staff Months & Dtime == Months -> divide both cancel the months and staff remains!
+
+#### Productivity
+
+<img src="https://render.githubusercontent.com/render/math?math=Productivity = \dfrac{Lines of Code}{Effort}">
+>Productivity = Lines of Code / Effort
 
 ## Models
 
