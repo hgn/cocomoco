@@ -8,11 +8,13 @@
 - KLOC is thousands of lines of code (*NOTE:* cocomoco uses LOC, do not enter kloc values)
 
 With cocomoco, to calculate the effort for 100000 lines of code using the
-organic model: `print(cocomoco.calculate(100000).effort)`.
+*organic model*: `print(cocomoco.calculate(100000).effort)` -> 302.1 (person-months).
 
 ## Models
 
 ### Standard Models
+
+Models define the coefficients a and b for typical projects.
 
 - Organic
   - 2-50 KLOC
