@@ -2,6 +2,8 @@
 
 ## Models
 
+<img src="https://render.githubusercontent.com/render/math?math=E = a ( KLOC )^{b}">
+
 ### Standard Models
 
 - Organic
@@ -48,7 +50,7 @@ low, low, nominal, high, very high, extra high.
 
 ## Show Case
 
-Following chart is created via `python3 -m cocomoco --demo-mode`:
+Following chart is created via `python3 -m cocomoco --demo-mode` (as well as other illustrations):
 
 ![image](doc/cocomo-standard-models.png)
 
@@ -78,3 +80,6 @@ print(result)
 $ python3 -m cocomoco --sloc <number> [--model <modelname>]
 ```
 
+# References
+
+- Alan Caine, Constructive Cost Model COCOMO, https://cs.uwaterloo.ca/~apidduck/se362/Lectures/cocomo.pdf
