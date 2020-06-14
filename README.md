@@ -20,14 +20,14 @@ With cocomoco, to calculate the effort for 100000 lines of code using the
 - c and d are constants to be determined
 - E is the effort
 
-With cocomoco, to calculate the effort for 100000 lines of code using the
+With cocomoco, to calculate the development time for 100000 lines of code using the
 	*organic model*: `print(cocomoco.calculate(100000).dtime)` -> 21.9 (months).
 
 #### Staff Size
 
 Average staff size can be calculated in the following way:
 
-<img src="https://render.githubusercontent.com/render/math?math=Staff Size = fraq{Effort}{Development Time}">
+<img src="https://render.githubusercontent.com/render/math?math=Staff Size = \dfrac{Effort}{Development Time}">
 Staff Size = Effort / Development Time
 
 ## Models
